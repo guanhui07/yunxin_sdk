@@ -1,12 +1,12 @@
 {
-    "name": "cccdl/yunxin_sdk",
+    "name": "guanhui07/yunxin_sdk",
     "description": "网易云信SDK for PHP",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
             "name": "dl",
-            "email": "568078220@qq.com",
+            "email": "guanhui07@gmail.com",
             "role": "Developer"
         }
     ],
