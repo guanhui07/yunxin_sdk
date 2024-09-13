@@ -13,7 +13,6 @@
     "minimum-stability": "dev",
     "require": {
         "ext-json": "*",
-        "ext-zlib": "*",
         "guzzlehttp/guzzle": "^7.0"
     },
     "autoload": {
