@@ -39,7 +39,7 @@
 > 运行环境要求PHP7.1+。
 
 ```shell
-$ composer require cccdl/yunxin_sdk
+$ composer require guanhui07/yunxin_sdk
 ```
 
 ### 接口对应文件
