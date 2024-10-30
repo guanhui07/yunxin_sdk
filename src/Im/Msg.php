@@ -9,6 +9,7 @@ use GuzzleHttp\Exception\GuzzleException;
 /**
  * 消息管理
  * @see https://doc.yunxin.163.com/messaging/server-apis/zk4Mzg0MjE?platform=server#消息功能
+ * @see https://doc.yunxin.163.com/messaging/server-apis/zk4Mzg0MjE?platform=server#历史消息与记录
  */
 class Msg extends Base
 {
