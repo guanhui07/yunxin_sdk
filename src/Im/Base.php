@@ -230,7 +230,7 @@ class Base
     {
         $this->AppKey = $appKey;
         $this->AppSecret = $appSecrt;
-        $this->Nonce = self::getNonce(128);
+        $this->Nonce = $this->getNonce(128);
     }
 
     /**
