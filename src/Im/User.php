@@ -57,6 +57,7 @@ class User extends Base
      * @return mixed
      * @throws GuzzleException
      * @throws cccdlException
+     * @see https://doc.yunxin.163.com/messaging/server-apis/DUxNDQ3NjA?platform=server
      */
     public function update(string $accid, string $token)
     {
@@ -78,6 +79,7 @@ class User extends Base
      * @return mixed
      * @throws GuzzleException
      * @throws cccdlException
+     * @see https://doc.yunxin.163.com/messaging/server-apis/TUzOTA4NTY?platform=server
      */
     public function block(string $accid, bool $needkick = true)
     {

@@ -383,6 +383,24 @@ class Msg extends Base
         return $this->post('/msg/markReadMsg.action', array_merge($options, ['body' => $body]));
     }
 
+    /**
+     * 双向撤回 消息
+     * https://doc.yunxin.163.com/messaging/server-apis/zE1NjUyNDg?platform=server
+     * @param $accid
+     * @param $accid2
+     * @param $msgidClient string 客户端消息 ID 指由 SDK 侧生成的消息 ID。
+     * @return array|bool|int|string|null
+     */
+    public function retractDelMsg($accid, $accid2,$msgidClient,$options=[])
+    {
+        $body = array(
+            'from' => (string)$accid,
+            'to' => (string)$accid2,
+            'type' => 7, //表示单聊消息撤回
+            'deleteMsgid' => $msgidClient,
+        );
+        return $this->post('/msg/recall.action', array_merge($options, ['body' => $body]));
+    }
 
 
 }
