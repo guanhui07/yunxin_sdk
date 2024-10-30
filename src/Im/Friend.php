@@ -7,6 +7,7 @@ use Exception;
 
 /**
  * 好友管理
+ * @see https://doc.yunxin.163.com/messaging/server-apis/zk4Mzg0MjE?platform=server#用户和好友关系
  */
 class Friend extends Base
 {
