@@ -216,4 +216,20 @@ class User extends Base
     }
 
 
+    /**
+     * 获取用户在线状态
+     * @param int $accid
+     * @return mixed
+     * @throws GuzzleException
+     * @throws cccdlException
+     */
+    public function checkUserOnline(int $accid)
+    {
+        $body = [
+            'accid' => $accid,
+        ];
+        return $this->post('user/checkOnline.action', $body);
+    }
+
+
 }
