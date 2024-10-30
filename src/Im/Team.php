@@ -501,4 +501,29 @@ class Team extends Base
 
         return $this->post('team/listTeamMute.action', $data);
     }
+
+    /**
+     * 历史记录
+     * @param  $tid       [群id]
+     * @param  $accid          [查询用户对应的accid.]
+     * @param  $begintime     [开始时间，ms]
+     * @param  $endtime     [截止时间，ms]
+     * @param  $limit       [本次查询的消息条数上限(最多100条),小于等于0，或者大于100，会提示参数错误]
+     * @param  $reverse    [1按时间正序排列，2按时间降序排列。其它返回参数414.默认是按降序排列。]
+     * @return $result      [返回array数组对象]
+     */
+    public function queryGroupMsg($tid, $accid, $begintime, $endtime = '', $limit = '100', $reverse = '1')
+    {
+        $body = [
+            'tid' => $tid,
+            'accid' => $accid,
+            'begintime' => $begintime,
+            'endtime' => $endtime,
+            'limit' => $limit,
+            'reverse' => $reverse,
+        ];
+        return $this->post('/msg/queryTeamMsg.action', $body);
+        return $result;
+    }
+
 }

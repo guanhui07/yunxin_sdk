@@ -384,7 +384,7 @@ class Msg extends Base
             'to' => $accid2,
             'msgidClient' => $msgidClient,
         ];
-        return $this->post('/msg/markReadMsg.action', array_merge($options, ['body' => $body]));
+        return $this->post('/msg/markReadMsg.action', $body);
     }
 
     /**
@@ -403,7 +403,7 @@ class Msg extends Base
             'type' => 7, //表示单聊消息撤回
             'deleteMsgid' => $msgidClient,
         );
-        return $this->post('/msg/recall.action', array_merge($options, ['body' => $body]));
+        return $this->post('/msg/recall.action', $body);
     }
 
 
@@ -421,10 +421,34 @@ class Msg extends Base
             'content' => $content,
             'type' => $type,
         ];
-        return $this->post('/msg/upload.action', array_merge($options, ['body' => $body]));
+        return $this->post('/msg/upload.action', $body);
     }
 
 
+    /**
+     * 历史记录-单聊
+     * @param  $from [发送者accid]
+     * @param  $to [接收者accid]
+     * @param  $begintime [开始时间，ms]
+     * @param  $endtime [截止时间，ms]
+     * @param  $limit [本次查询的消息条数上限(最多100条),小于等于0，或者大于100，会提示参数错误]
+     * @param  $reverse [1按时间正序排列，2按时间降序排列。其它返回参数414.默认是按降序排列。]
+     * @return $result      [返回array数组对象]
+     * @see https://doc.yunxin.163.com/messaging/server-apis/DE0MTk0OTY?platform=server#%E5%8D%95%E8%81%8A%E4%BA%91%E7%AB%AF%E5%8E%86%E5%8F%B2%E6%B6%88%E6%81%AF%E6%9F%A5%E8%AF%A2
+     *
+     */
+    public function querySessionMsg($from, $to, $begintime, $endtime = '', $limit = '100', $reverse = '1')
+    {
+        $body = [
+            'from' => $from,
+            'to' => $to,
+            'begintime' => $begintime,
+            'endtime' => $endtime,
+            'limit' => $limit,
+            'reverse' => $reverse,
+          ];
+        return $this->post('/msg/querySessionMsg.action', $body);
+    }
 
 
 }
