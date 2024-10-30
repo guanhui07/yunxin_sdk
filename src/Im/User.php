@@ -193,4 +193,27 @@ class User extends Base
         return $this->post('user/muteAv.action', ['accid' => $accid, 'mute' => $mute]);
     }
 
+
+    /**
+     * 获取语音视频安全认证签名
+     * @param $uid int
+     * @param $repeatUse bool
+     * @param $expire int
+     * @param $channelName string
+     * @return mixed
+     * @throws GuzzleException
+     * @throws cccdlException
+     */
+    public function getCallToken(int $uid, bool $repeatUse = true, int $expire = 600, string $channelName = '')
+    {
+        $body = [
+            'uid' => $uid,
+            'repeatUse' => $repeatUse ? 'true' : 'false',
+            'expireAt' => $expire,
+            'channelName' => $channelName,
+        ];
+        return $this->post('user/getToken.action', $body);
+    }
+
+
 }

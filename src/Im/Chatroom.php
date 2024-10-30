@@ -72,4 +72,37 @@ class Chatroom extends Base
 
     }
 
+    /**
+     * 发送聊天室消息（全服广播）
+     * @param array $attach
+     * @param int $msgId
+     * @param int $fromAccid
+     * @param array $options
+     * @param array $ext
+     * @return mixed
+     * @throws GuzzleException
+     * @throws cccdlException
+     */
+    public function sendRoomBroadcast(array $attach,int $msgId,int $fromAccid,array $options = [],array $ext = [])
+    {
+        $data = [
+            'msgId' => $msgId,
+            'attach' => $attach,
+            'fromAccid' => $fromAccid,
+            'msgType' => 100,
+            'ext' => $ext,
+        ];
+
+        if (isset($options['skipHistory'])) {
+            $data['skipHistory'] = $options['skipHistory'];
+            unset($options['skipHistory']);
+        }
+        if (isset($options['useYidun'])) {
+            $data['useYidun'] = $options['useYidun'];
+            unset($options['useYidun']);
+        }
+
+        return $this->post('chatroom/broadcast.action', array_merge($options, $data));
+    }
+
 }
