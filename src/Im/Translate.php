@@ -15,16 +15,15 @@ class Translate  extends Base
      * @param $from string  源语言，不传默认为 auto
      * @return array|bool|int|string|null
      */
-    public function translateMessage(int $accid ,string $text ,string $to ,string $from = '' ) {
+    public function translateMessage(int $accid ,string $text ,string $to ,string $from = 'auto' ) {
 
         $body = [
             'accid' => $accid,
             'text'  => $text,
             'to'    => $to,
+            'from'    => $from,
         ];
-        if(!empty($from)){
-            $body['from'] = $from;
-        }
+
         return $this->post('translator/textMsg.action', $body);
     }
 
