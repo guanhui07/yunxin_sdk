@@ -5,6 +5,9 @@ namespace cccdl\yunxin_sdk\Im;
 use cccdl\yunxin_sdk\Exception\cccdlException;
 use GuzzleHttp\Exception\GuzzleException;
 
+/**
+ * @see https://doc.yunxin.163.com/messaging/server-apis/zk4Mzg0MjE?platform=server#聊天室
+ */
 class Chatroom extends Base
 {
     const MSG_TYPE_TEXT = 0; // 文本类型
