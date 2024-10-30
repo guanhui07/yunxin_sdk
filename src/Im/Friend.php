@@ -18,6 +18,7 @@ class Friend extends Base
      * @param string $msg 加好友对应的请求消息，第三方组装，最长256字符
      * @param string $serverex 服务器端扩展字段，限制长度256。此字段client端只读，server端读写
      * @throws Exception
+     * @see https://doc.yunxin.163.com/messaging/server-apis/DQ0MTY1NzI?platform=server
      */
     public function add(string $accid, string $faccid, int $type, string $msg = '', string $serverex = '')
     {
@@ -87,6 +88,7 @@ class Friend extends Base
      * @param int    $relationType 本次操作的关系类型,1:黑名单操作，2:静音列表操作
      * @param int    $value 操作值，0:取消黑名单或静音，1:加入黑名单或静音
      * @throws Exception
+     * @see https://doc.yunxin.163.com/messaging/server-apis/jEzNDQ4ODc?platform=server
      */
     public function setSpecialRelation(string $accid, string $targetAcc, int $relationType, int $value)
     {

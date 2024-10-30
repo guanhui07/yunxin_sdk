@@ -94,6 +94,7 @@ class User extends Base
      * @return mixed
      * @throws GuzzleException
      * @throws cccdlException
+     * @see https://doc.yunxin.163.com/messaging/docs/TUzOTA4NTY?platform=server#%E8%A7%A3%E7%A6%81%E8%B4%A6%E5%8F%B7
      */
     public function unblock(string $accid)
     {
@@ -125,6 +126,7 @@ class User extends Base
      * @return mixed
      * @throws GuzzleException
      * @throws cccdlException
+     * @see https://doc.yunxin.163.com/messaging/server-apis/zI0NzYyMDQ?platform=server#url-1
      */
     public function updateUserInfo(string $accid, array $options)
     {
