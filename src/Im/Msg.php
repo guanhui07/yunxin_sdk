@@ -24,11 +24,11 @@ class Msg extends Base
      * 发送普通消息
      *
      * @param string $from 发送者accid，用户帐号，最大32字符，必须保证一个APP内唯一
-     * @param int    $ope 类型 0：点对点个人消息，1：群消息（高级群），其他返回414
+     * @param int $ope 类型 0：点对点个人消息，1：群消息（高级群），其他返回414
      * @param string $to ope==0是表示accid即用户id，ope==1表示tid即群id
-     * @param int    $type 消息类型 对应self::MSG_TYPE_*
+     * @param int $type 消息类型 对应self::MSG_TYPE_*
      * @param string $body 消息内容，最大长度5000字符，JSON格式
-     * @param array  $options 可选参数集合，支持如下：
+     * @param array $options 可选参数集合，支持如下：
      *
      * - antispam: bool, 对于对接了易盾反垃圾功能的应用，本消息是否需要指定经由易盾检测的内容（antispamCustom）。true或false, 默认false。
      *   只对消息类型为：100 自定义消息类型 的消息生效。
@@ -85,10 +85,10 @@ class Msg extends Base
      * 批量发送点对点普通消息
      *
      * @param string $fromAccid 发送者accid，用户帐号，最大32字符，必须保证一个APP内唯一
-     * @param array  $toAccids 接受者数组，限500人
-     * @param int    $type 消息类型 对应self::MSG_TYPE_*
+     * @param array $toAccids 接受者数组，限500人
+     * @param int $type 消息类型 对应self::MSG_TYPE_*
      * @param string $body 消息内容，最大长度5000字符，JSON格式
-     * @param array  $options 可选参数，支持如下
+     * @param array $options 可选参数，支持如下
      *
      * - option: string, 指定消息的漫游，存云端历史，发送方多端同步，推送，消息抄送等特殊行为,使用 self::chatOption
      *
@@ -128,10 +128,10 @@ class Msg extends Base
      * 发送自定义系统通知
      *
      * @param string $from 发送者accid，用户帐号，最大32字符，APP内唯一
-     * @param int    $msgtype 消息类型，0：点对点自定义通知，1：群消息自定义通知，其他返回414
+     * @param int $msgtype 消息类型，0：点对点自定义通知，1：群消息自定义通知，其他返回414
      * @param string $to msgtype==0是表示accid即用户id，msgtype==1表示tid即群id
      * @param string $attach 自定义通知内容，第三方组装的字符串，建议是JSON串，最大长度4096字符
-     * @param array  $options 可选参数集合，支持如下：
+     * @param array $options 可选参数集合，支持如下：
      *
      * - option: string, 指定消息计数等特殊行为,使用 self::noticeOption生成
      *
@@ -163,9 +163,9 @@ class Msg extends Base
      * 批量发送点对点自定义系统通知
      *
      * @param string $fromAccid 发送者accid，用户帐号，最大32字符，APP内唯一
-     * @param array  $toAccids 接收者 最大限500人
+     * @param array $toAccids 接收者 最大限500人
      * @param string $attach 自定义通知内容，第三方组装的字符串，建议是JSON串，最大长度4096字符
-     * @param array  $options 可选参数集合，支持以下选项:
+     * @param array $options 可选参数集合，支持以下选项:
      *
      * - option: string, 指定消息计数等特殊行为,使用 self::noticeOption生成
      *
@@ -198,7 +198,7 @@ class Msg extends Base
      * 对在应用内的用户发送广播消息
      *
      * @param string $body 广播消息内容
-     * @param array  $options 可选参数集合，支持以下选项:
+     * @param array $options 可选参数集合，支持以下选项:
      *
      * - from: string, 发送者accid, 用户帐号，最大长度32字符，必须保证一个APP内唯一
      *
@@ -218,7 +218,6 @@ class Msg extends Base
     }
 
 
-
     /**
      * 生成文本消息
      * @param string $msg
@@ -235,9 +234,9 @@ class Msg extends Base
      * @param string $md5
      * @param string $url
      * @param string $ext
-     * @param int    $w
-     * @param int    $h
-     * @param int    $size
+     * @param int $w
+     * @param int $h
+     * @param int $size
      * @return string
      */
     public static function imageFormat(string $name, string $md5, string $url, string $ext, int $w, int $h, int $size): string
@@ -255,10 +254,10 @@ class Msg extends Base
 
     /**
      * 语音消息
-     * @param int    $dur 时长ms
+     * @param int $dur 时长ms
      * @param string $md5 播放地址
      * @param string $url
-     * @param int    $size 文件大小
+     * @param int $size 文件大小
      * @return string
      */
     public static function voiceFormat(int $dur, string $md5, string $url, int $size): string
@@ -274,13 +273,13 @@ class Msg extends Base
 
     /**
      * 视频消息
-     * @param int    $dur 视频持续时长ms
+     * @param int $dur 视频持续时长ms
      * @param string $md5
      * @param string $url 播放地址
-     * @param int    $w 宽
-     * @param int    $h 高
+     * @param int $w 宽
+     * @param int $h 高
      * @param string $ext 后缀名
-     * @param int    $size 文件大小
+     * @param int $size 文件大小
      * @return string
      */
     public static function videoFormat(int $dur, string $md5, string $url, int $w, int $h, string $ext, int $size): string
@@ -314,7 +313,7 @@ class Msg extends Base
      * @param string $md5
      * @param string $url 地址
      * @param string $ext 格式，例如ttf
-     * @param int    $size 文件大小
+     * @param int $size 文件大小
      * @return string
      */
     public static function fileFormat(string $name, string $md5, string $url, string $ext, int $size): string
@@ -378,7 +377,7 @@ class Msg extends Base
      * @param $msgidClient string 客户端消息 ID 指由 SDK 侧生成的消息 ID。
      * @return array|bool|int|string|null
      */
-    public function markReadMsg(int $accid,int $accid2,string $msgidClient, array $options = [])
+    public function markReadMsg(int $accid, int $accid2, string $msgidClient, array $options = [])
     {
         $body = [
             'from' => $accid,
@@ -396,7 +395,7 @@ class Msg extends Base
      * @param $msgidClient string 客户端消息 ID 指由 SDK 侧生成的消息 ID。
      * @return array|bool|int|string|null
      */
-    public function retractDelMsg($accid, $accid2,$msgidClient,$options=[])
+    public function retractDelMsg($accid, $accid2, $msgidClient, $options = [])
     {
         $body = array(
             'from' => (string)$accid,
@@ -406,6 +405,26 @@ class Msg extends Base
         );
         return $this->post('/msg/recall.action', array_merge($options, ['body' => $body]));
     }
+
+
+    /**
+     * 消息功能-文件上传
+     * @param  $content [字节流base64串(Base64.encode(bytes)) ，最大15M的字节流]
+     * @param  $type [上传文件类型]
+     * @return $result      [返回array数组对象]
+     * @see https://doc.yunxin.163.com/messaging/docs/zQyNDM0NzE?platform=server
+     * @see  https://doc.yunxin.163.com/messaging/docs/zQyNDM0NzE?platform=server#%E5%88%86%E7%89%87%E4%B8%8A%E4%BC%A0
+     */
+    public function uploadMsg($content, $type = '0', $options = [])
+    {
+        $body = [
+            'content' => $content,
+            'type' => $type,
+        ];
+        return $this->post('/msg/upload.action', array_merge($options, ['body' => $body]));
+    }
+
+
 
 
 }
