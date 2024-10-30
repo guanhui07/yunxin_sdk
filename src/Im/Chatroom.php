@@ -38,4 +38,38 @@ class Chatroom extends Base
 
     }
 
+    /**
+     * 发送聊天室消息（指定用户）
+     * @param int $fromAccid
+     * @param array $toAccids
+     * @param int $roomid
+     * @param array $attach
+     * @param int $msgId
+     * @param $options
+     * @param $ext
+     * @return mixed
+     * @throws GuzzleException
+     * @throws cccdlException
+     */
+    public function sendRoomToMsg(int $fromAccid,array $toAccids,int $roomid,array $attach,int $msgId, $options = [], $ext = "")
+    {
+        $data = [
+            'roomid' => $roomid,
+            'msgId' => $msgId,
+            'attach' => $attach,
+            'fromAccid' => $fromAccid,
+            'toAccids' => json_encode($toAccids),
+            'msgType' => 100,
+            'ext' => $ext,
+        ];
+
+        if (isset($options['useYidun'])) {
+            $data['useYidun'] = $options['useYidun'];
+            unset($options['useYidun']);
+        }
+
+        return $this->post('chatroom/sendMsgToSomeone.action', array_merge($options, $data));
+
+    }
+
 }
