@@ -213,6 +213,7 @@ class Msg extends Base
     }
 
 
+
     /**
      * 生成文本消息
      * @param string $msg
@@ -363,5 +364,25 @@ class Msg extends Base
             'persistent' => $persistent,
         ]);
     }
+
+    /**
+     * 发送单聊已读回执
+     * https://doc.yunxin.163.com/messaging/server-apis/zcwMDk2Mzk?platform=server
+     * @param $accid
+     * @param $accid2
+     * @param $msgidClient string 客户端消息 ID 指由 SDK 侧生成的消息 ID。
+     * @return array|bool|int|string|null
+     */
+    public function markReadMsg(int $accid,int $accid2,string $msgidClient, array $options = [])
+    {
+        $body = [
+            'from' => $accid,
+            'to' => $accid2,
+            'msgidClient' => $msgidClient,
+        ];
+        return $this->post('/msg/markReadMsg.action', array_merge($options, ['body' => $body]));
+    }
+
+
 
 }

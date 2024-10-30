@@ -40,6 +40,8 @@ class User extends Base
      * @return array 内容 ["token"=>"xx","accid"=>"xx","name"=>"xx"]
      * @throws GuzzleException
      * @throws cccdlException
+     * @see https://doc.yunxin.163.com/messaging/server-apis/DQ3Nzk1MTY?platform=server
+     *
      */
     public function create(string $accid, array $options): array
     {
