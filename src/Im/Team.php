@@ -8,6 +8,7 @@ use GuzzleHttp\Exception\GuzzleException;
 
 /**
  * 群组功能（高级群）
+ * @see https://doc.yunxin.163.com/messaging/server-apis/zk4Mzg0MjE?platform=server#高级群
  */
 class Team extends Base
 {
