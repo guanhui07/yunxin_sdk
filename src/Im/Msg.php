@@ -149,6 +149,7 @@ class Msg extends Base
      * @throws GuzzleException
      * @throws cccdlException
      * @see https://doc.yunxin.163.com/messaging/server-apis/jYxMjQ1NTk?platform=server#api-
+     * @see https://doc.yunxin.163.com/messaging/server-apis/zk4Mzg0MjE?platform=server#自定义系统通知
      */
     public function sendAttachMsg(string $from, int $msgtype, string $to, string $attach, array $options = [])
     {
