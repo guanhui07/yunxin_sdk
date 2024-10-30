@@ -15,7 +15,7 @@ class Translate  extends Base
      * @param $from string  源语言，不传默认为 auto
      * @return array|bool|int|string|null
      */
-    public function translatorMessage(int $accid ,string $text ,string $to ,string $from = '' ) {
+    public function translateMessage(int $accid ,string $text ,string $to ,string $from = '' ) {
 
         $body = [
             'accid' => $accid,
