@@ -10,6 +10,8 @@ use GuzzleHttp\Exception\GuzzleException;
 /**
  * 在线状态订阅
  * 需要向网易云信申请开通
+ * @see https://doc.yunxin.163.com/messaging/server-apis/zk4Mzg0MjE?platform=server#在线状态订阅
+ *
  */
 class Subscribe extends Base
 {
@@ -22,6 +24,7 @@ class Subscribe extends Base
      * @return mixed
      * @throws GuzzleException
      * @throws cccdlException
+     * @see https://doc.yunxin.163.com/messaging/docs/jc5NDQwODk?platform=server
      */
     public function add(string $accId, array $pubAccIds, int $ttl)
     {

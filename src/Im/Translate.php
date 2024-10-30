@@ -2,6 +2,9 @@
 
 namespace cccdl\yunxin_sdk\Im;
 
+/**
+ * @see https://doc.yunxin.163.com/messaging/server-apis/zk4Mzg0MjE?platform=server#其他
+ */
 class Translate  extends Base
 {
 
