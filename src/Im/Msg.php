@@ -60,6 +60,8 @@ class Msg extends Base
      * @return array
      * @throws GuzzleException
      * @throws cccdlException
+     *
+     * @see https://doc.yunxin.163.com/messaging/docs/DQ2NTg4ODE?platform=server
      */
     public function sendMsg(string $from, int $ope, string $to, int $type, string $body, array $options = [], string $pushcontent = ''): array
     {
@@ -178,6 +180,9 @@ class Msg extends Base
      * @return mixed
      * @throws GuzzleException
      * @throws cccdlException
+     * @see https://doc.yunxin.163.com/messaging/server-apis/Dk2MjQwODA?platform=server
+     *
+     * @see https://doc.yunxin.163.com/messaging/server-apis/Dk2MjQwODA?platform=server
      */
     public function sendBatchAttachMsg(string $fromAccid, array $toAccids, string $attach, array $options = [])
     {
