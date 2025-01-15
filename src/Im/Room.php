@@ -56,7 +56,7 @@ class Room extends Base
 
 
     /**
-     * 创建推流任务
+     * 创建推流任务 创建旁路推流任务
      * @param int $user_id
      * @param string $cname
      * @param string $task_id
@@ -79,7 +79,7 @@ class Room extends Base
     }
 
     /**
-     * 创建推流任务
+     * 创建推流任务 创建旁路推流任务
      * @param int $user_id
      * @param string $cid
      * @param string $task_id
@@ -104,7 +104,7 @@ class Room extends Base
 
 
     /**
-     * 查看推流任务
+     * 查看推流任务 查询指定旁路推流任务
      * @param string $cname
      * @param string $task_id
      * @return array|bool|int|string
@@ -122,7 +122,7 @@ class Room extends Base
 
 
     /**
-     * 更新推流任务
+     * 更新推流任务 更新旁路推流任务
      * @param int $user_id
      * @param string $cname
      * @param string $task_id
@@ -150,5 +150,25 @@ class Room extends Base
         }
         return $this->postV2($url, $data);
     }
+
+
+    /**
+     * 删除推流任务 停止旁路推流任务
+     * @param string $cname
+     * @param string $task_id
+     * @param int $user_id
+     * @return array|bool|int|string
+     * https://doc.yunxin.163.com/nertc/server-apis/TE4MjU4NjY?platform=server
+     */
+    public function deleteStreamTaskV3(string $cname, string $task_id)
+    {
+        $url = sprintf('https://logic-dev.netease.im/v3/api/rooms/task?cname=%s', $cname);
+        $data = [
+            'taskId' => $task_id,
+        ];
+        return $this->postV2($url, $data);
+    }
+
+
 
 }
