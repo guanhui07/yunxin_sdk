@@ -9,6 +9,10 @@ use GuzzleHttp\Exception\GuzzleException;
  * @see https://doc.yunxin.163.com/nertc/server-apis/TE0NDI4MjY?platform=server 房间管理
  * 创建频道
  * @see https://doc.yunxin.163.com/live-streaming/server-apis/TkzNzkzNTk?platform=server#%E5%88%9B%E5%BB%BA%E9%A2%91%E9%81%93
+ *
+ * 流程：创建房间 createRoom，创建频道createChannel，创建推流任务createStreamTaskV3
+ *
+ *
  */
 class Room extends Base
 {
