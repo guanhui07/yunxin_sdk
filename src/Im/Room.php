@@ -48,10 +48,42 @@ class Room extends Base
      * 通过房间名剔除某人
      * https://doc.yunxin.163.com/nertc/server-apis/zY3NDA3MTc?platform=server
      */
-    public function kickUerForVoiceVideoByCname($cname, $uid)
+    public function kickUerForVoiceVideoByCname(string $cname,int $uid)
     {
         $url = 'https://logic-dev.netease.im/v3/api/kicklist/members?cname=' . $cname . '&uid=' . $uid;
         return $this->postV2($url, []);
+    }
+    /**
+     * 通过房间名删除某个房间
+     * https://doc.yunxin.163.com/nertc/server-apis/zY3NDA3MTc?platform=server
+     */
+    public function delRoomForVoiceVideoByCName(string $cname)
+    {
+//        $url = 'https://logic-dev.netease.im/v3/api/rooms?cname=' . $cname;
+//        $this->postDataCurl($url, [], 'DELETE');
+
+        return false;
+    }
+    public function delRoomForVoiceVideo(string $cid)
+    {
+//        $url = 'https://logic-dev.netease.im/v2/api/rooms/' . $cid;
+//        $this->postDataCurl($url, [], 'DELETE');
+
+        return false;
+    }
+
+
+    /**
+     *  查询某个房间状态信息
+     *  https://doc.yunxin.163.com/nertc/server-apis/TI5MTIwNDc
+     * @param string $cid
+     * @return mixed
+     * @throws cccdlException
+     */
+    public function getRoomStateForVoiceVideo(string $cid)
+    {
+        $url = 'https://logic-dev.netease.im/v2/api/rooms/' . $cid;
+        return $this->get($url);
     }
 
 
