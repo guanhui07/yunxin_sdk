@@ -35,6 +35,29 @@ class Room extends Base
     }
 
     /**
+     * 查询房间在线成员信息
+     * @see https://doc.yunxin.163.com/nertc/server-apis/jUzODcwODE?platform=server
+     */
+    public function getRtcRoomUsers(string $cid)
+    {
+        $url = 'https://logic-dev.netease.im/v2/api/rooms/' . $cid . '/members';
+        return $this->get($url);
+    }
+
+    /**
+     * 通过房间名剔除某人
+     * https://doc.yunxin.163.com/nertc/server-apis/zY3NDA3MTc?platform=server
+     */
+    public function kickUerForVoiceVideoByCname($cname, $uid)
+    {
+        $url = 'https://logic-dev.netease.im/v3/api/kicklist/members?cname=' . $cname . '&uid=' . $uid;
+        return $this->postV2($url, []);
+    }
+
+
+    //-------------频道-----------------
+
+    /**
      * 创建频道
      * @param string $name
      * @param int $type
@@ -53,8 +76,33 @@ class Room extends Base
 
     }
 
+    /**
+     * 获取频道信息
+     * @param string $channel_id
+     * @return array|bool|int|string
+     */
+    public function getChannel(string $channel_id)
+    {
+        $url = 'https://vcloud.163.com/app/channelstats';
+        $data = [
+            'cid' => $channel_id,
+        ];
+        return $this->postV2($url, $data);
+    }
 
-
+    /**
+     * 删除频道
+     * @param string $channel_id
+     * @return array
+     */
+    public function deleteChannel(string $channel_id)
+    {
+        $url = 'https://vcloud.163.com/app/channel/delete';
+        $data = [
+            'cid' => $channel_id,
+        ];
+        return $this->postV2($url, $data);
+    }
 
 
 }
