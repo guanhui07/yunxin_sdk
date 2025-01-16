@@ -142,6 +142,7 @@ class User extends Base
      * @return array
      * @throws GuzzleException
      * @throws cccdlException
+     * @see https://doc.yunxin.163.com/messaging/server-apis/zI0NzYyMDQ?platform=server
      */
     public function getUserInfos(array $accids): array
     {
