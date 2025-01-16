@@ -6,9 +6,9 @@ use cccdl\yunxin_sdk\Exception\cccdlException;
 use GuzzleHttp\Exception\GuzzleException;
 
 /**
- * @see https://doc.yunxin.163.com/nertc/server-apis/TI2ODQxOTU?platform=server
+ * @see https://doc.yunxin.163.com/nertc/server-apis/TI2ODQxOTU?platform=server 旁路推流概述
  * @see https://doc.yunxin.163.com/nertc/server-apis/zQ1MDM1MjQ?platform=server
- *
+ * @see https://doc.yunxin.163.com/nertc/server-apis/DM0MTg2NTM?platform=server 创建旁路推流任务
  * @see https://doc.yunxin.163.com/nertc/server-apis/zQ0MDkzNDI?platform=server 推流任务
  * 流程：创建直播房间 createRoom，创建频道createChannel，创建推流任务createStreamTaskV3
  *
