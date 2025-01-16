@@ -27,7 +27,7 @@ class Room extends Base
         $url = 'https://logic-dev.netease.im/v2/api/room';
         $data = [
             'channelName' => $channelName,
-            'mode' => 2,
+            'mode' => 2, //云信固定要求2
             'uid' => $uid,
         ];
         return $this->postV2($url, $data);
