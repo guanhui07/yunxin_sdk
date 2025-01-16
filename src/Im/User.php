@@ -10,6 +10,7 @@ use GuzzleHttp\Exception\GuzzleException;
 /**
  * 用户管理
  * @see https://doc.yunxin.163.com/messaging/server-apis/zk4Mzg0MjE?platform=server#云信-im-账号管理
+ * @see https://doc.yunxin.163.com/messaging/server-apis/DQ3Nzk1MTY?platform=server
  */
 class User extends Base
 {
