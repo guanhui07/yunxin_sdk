@@ -18,15 +18,20 @@ use GuzzleHttp\Exception\GuzzleException;
 class Room extends Base
 {
 
+
     /**
-     * 创建音视频房间
+     *  创建音视频房间
      * @see https://doc.yunxin.163.com/nertc/server-apis/jg3NjcyNTE?platform=server
+     * @param string $channelName 随机字符串
+     * @param int $uid
+     * @return array
+     * @throws cccdlException
      */
-    public function createRoom($channelName, $uid): array
+    public function createRoom(string $channelName, int $uid): array
     {
         $url = 'https://logic-dev.netease.im/v2/api/room';
         $data = [
-            'channelName' => $channelName,
+            'channelName' => $channelName, //
             'mode' => 2, //云信固定要求2
             'uid' => $uid,
         ];
@@ -35,8 +40,11 @@ class Room extends Base
     }
 
     /**
-     * 查询房间在线成员信息
+     *  查询房间在线成员信息
      * @see https://doc.yunxin.163.com/nertc/server-apis/jUzODcwODE?platform=server
+     * @param string $cid
+     * @return mixed
+     * @throws cccdlException
      */
     public function getRtcRoomUsers(string $cid)
     {
@@ -44,18 +52,27 @@ class Room extends Base
         return $this->get($url);
     }
 
+
     /**
-     * 通过房间名剔除某人
-     * https://doc.yunxin.163.com/nertc/server-apis/zY3NDA3MTc?platform=server
+     *  通过房间名剔除某人
+     *  https://doc.yunxin.163.com/nertc/server-apis/zY3NDA3MTc?platform=server
+     * @param string $cname
+     * @param int $uid
+     * @return mixed
+     * @throws cccdlException
      */
-    public function kickUerForVoiceVideoByCname(string $cname,int $uid)
+    public function kickUerForVoiceVideoByCname(string $cname, int $uid)
     {
         $url = 'https://logic-dev.netease.im/v3/api/kicklist/members?cname=' . $cname . '&uid=' . $uid;
         return $this->postV2($url, []);
     }
+
+
     /**
-     * 通过房间名删除某个房间
-     * https://doc.yunxin.163.com/nertc/server-apis/zY3NDA3MTc?platform=server
+     *  通过房间名删除某个房间
+     *  https://doc.yunxin.163.com/nertc/server-apis/zY3NDA3MTc?platform=server
+     * @param string $cname
+     * @return false
      */
     public function delRoomForVoiceVideoByCName(string $cname)
     {
@@ -64,12 +81,15 @@ class Room extends Base
 
         return false;
     }
+
+    /**
+     * @param string $cid
+     */
     public function delRoomForVoiceVideo(string $cid)
     {
 //        $url = 'https://logic-dev.netease.im/v2/api/rooms/' . $cid;
 //        $this->postDataCurl($url, [], 'DELETE');
 
-        return false;
     }
 
 
