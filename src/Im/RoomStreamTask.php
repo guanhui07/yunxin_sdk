@@ -6,6 +6,7 @@ use cccdl\yunxin_sdk\Exception\cccdlException;
 use GuzzleHttp\Exception\GuzzleException;
 
 /**
+ * @see https://doc.yunxin.163.com/nertc/server-apis/TI2ODQxOTU?platform=server
  * @see https://doc.yunxin.163.com/nertc/server-apis/zQ1MDM1MjQ?platform=server
  *
  * @see https://doc.yunxin.163.com/nertc/server-apis/zQ0MDkzNDI?platform=server 推流任务
