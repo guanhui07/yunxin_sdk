@@ -117,8 +117,8 @@ class RoomStreamTask extends Base
      * 删除推流任务 停止旁路推流任务
      * @param string $cname
      * @param string $task_id
-     * @param int $user_id
      * @return array|bool|int|string
+     * @throws cccdlException
      * @see https://doc.yunxin.163.com/nertc/server-apis/TE4MjU4NjY?platform=server
      */
     public function deleteStreamTaskV3(string $cname, string $task_id)
